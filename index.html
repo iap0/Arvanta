@@ -340,42 +340,42 @@
             </div>
             
             <div class="col-lg-8">
-                <form class="contact-form">
+                <form class="contact-form" id="contact-form">
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Practice Name">
+                            <input type="text" name="practice_name" class="form-control" placeholder="Practice Name">
                         </div>
                         <div class="col-md-6">
-                            <input type="tel" class="form-control" placeholder="Phone Number">
+                            <input type="tel" name="phone" class="form-control" placeholder="Phone Number">
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col">
-                            <select class="form-select">
-                                <option selected>Services You're Interested In</option>
-                                <option value="1">Complete Medical Billing</option>
-                                <option value="2">Credentialing Services</option>
-                                <option value="3">Revenue Cycle Management</option>
-                                <option value="4">Denial Management</option>
-                                <option value="5">Coding & Auditing Services</option>
-                                <option value="6">Practice Management</option>
+                            <select name="service" class="form-select">
+                                <option selected value="">Services You're Interested In</option>
+                                <option value="Complete Medical Billing">Complete Medical Billing</option>
+                                <option value="Credentialing Services">Credentialing Services</option>
+                                <option value="Revenue Cycle Management">Revenue Cycle Management</option>
+                                <option value="Denial Management">Denial Management</option>
+                                <option value="Coding & Auditing Services">Coding & Auditing Services</option>
+                                <option value="Practice Management">Practice Management</option>
                             </select><br>
                         </div>
                     </div>
                     
                     <div class="row">
                         <div class="col">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" rows="5" placeholder="Your Message" required></textarea>
                         </div>
                     </div>
                     

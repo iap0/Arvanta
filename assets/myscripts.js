@@ -1,3 +1,61 @@
+// Add this to your existing myscripts.js file
+
+// Contact form submission handler
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the contact form element
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (contactForm) {
+        // Add ID to form if not present
+        if (!contactForm.id) {
+            contactForm.id = 'contact-form';
+        }
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ensure all inputs have name attributes
+            const inputs = contactForm.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                if (!input.name && input.placeholder) {
+                    // Create name attribute based on placeholder if missing
+                    const placeholderText = input.placeholder.toLowerCase().replace(/[^a-z0-9]/g, '_');
+                    input.name = placeholderText;
+                }
+            });
+            
+            // Create FormData object from the form
+            const formData = new FormData(this);
+            
+            // Send the form data using fetch API
+            fetch('/resources/contact_handler.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    alert(data.message);
+                    // Reset the form
+                    contactForm.reset();
+                    
+                    // Optional: Redirect to thank you page
+                    // window.location.href = '/resources/redirect.html';
+                } else {
+                    // Show error message
+                    alert(data.message || 'An error occurred while sending your message.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while sending your message. Please try again later.');
+            });
+        });
+    }
+});
+
+
 // FAQ Toggle
 document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {
@@ -60,3 +118,4 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+

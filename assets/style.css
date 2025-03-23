@@ -545,3 +545,8 @@ body {
         font-size: 2rem;
     }
 }
+
+img {
+    max-width: 100%; /* Ensures image isn't larger than its container */
+    height: auto; /* Maintains aspect ratio */
+  }
